@@ -1,16 +1,17 @@
-# React-professional-configuration
+# Shared Costs App
 
-![sc](./public/sc.png)
+An app for access to shared costs in your friends group. For every cost you can visualize the next information sorted by last payment made:
 
-### `FREE`
+- Person who made the payment.
+- Amount of payment.
+- Description of the payment.
+- Date of payment.
 
-Welcome to the most professional React configuration template you can find!
+You also can do the following actions:
 
-This project is set up so that you only focus on the coding as I have done all the dirty work for you. You can play with the settings if you wish, but I recommend that you don't as it has very advanced and perfectly calculated settings.
-
-## How to use this template
-
-At the top right, right where the clone button is, there is a new button so you can use this template completely from ZERO in your new project.
+- Can add a person to your friends group.
+- Add a payment.
+- See a balance sheet to see how much money each person in the group has to pay or receive so that we would all have paid the same and not have debts among the group of friends.
 
 ## How to install
 
@@ -22,38 +23,12 @@ pnpm i
 pnpm dev
 ```
 
-## :bulb:Configurations:
-
-- :high_brightness:React
-  - :sparkler:Jest
-  - :sparkler:Testing Library
-  - :sparkler:Babel
-  - :sparkler:pnpm package management
-- :high_brightness:TypeScript
-  - :sparkler:Aliases (prefix "@" on imports)
-- :high_brightness:Sass
-  - :sparkler:[Fluid Design](https://bit.ly/fluid-design)
-- :high_brightness:Vite
-  - :sparkler:Load aliases
-  - :sparkler:Load environment variables
-  - :sparkler:Load environment modes (development, staging and production)
-- :high_brightness:Husky
-  - :sparkler:eslint
-  - :sparkler:prettier
-  - :sparkler:jest
-- :high_brightness:Eslint
-  - :sparkler:Standard Js
-  - :sparkler:React
-  - :sparkler:TypeScript
-  - :sparkler:Jest
-- :high_brightness:Prettier
-
 ## License
 
 ```txt
 MIT License
 
-Copyright (c) 2022 Jose Espinosa
+Copyright (c) 2023 Carmelo Ricarte Rocamora
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -76,4 +51,4 @@ SOFTWARE.
 
 ## Author
 
-[Jose Espinosa -> joer9514](https://github.com/joer9514)
+[Carmelo Ricarete Rocamora -> CarmeloRicarte](https://github.com/CarmeloRicarte)

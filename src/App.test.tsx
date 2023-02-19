@@ -6,7 +6,7 @@ describe('App component', () => {
     test('App renderer', () => {
       render(<App />);
 
-      const title = screen.getByText(/PROFESSIONAL CONFIGURATION REACT!/i);
+      const title = screen.getByText(/Gastos Compartidos/i);
 
       expect(title).toBeInTheDocument();
     });

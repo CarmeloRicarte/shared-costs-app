@@ -1,0 +1,16 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: calc(14px + (28 - 14) * ((100vw - 320px) / (3840 - 320)));
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.App {
+  height: 90vh;
+  display: grid;
+  text-align: center;
+}
