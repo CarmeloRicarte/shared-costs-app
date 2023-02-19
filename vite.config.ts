@@ -7,7 +7,10 @@ export default ({ mode }: { mode: string }) => {
   return defineConfig({
     plugins: [react()],
     resolve: {
-      alias: [{ find: '@', replacement: resolve(__dirname, './src') }],
+      alias: [
+        { find: '@', replacement: resolve(__dirname, './src') },
+        { find: 'pages', replacement: resolve(__dirname, './src/pages') },
+      ],
     },
     define: { 'process.env': { ...loadEnv(mode, process.cwd()) } },
   });
