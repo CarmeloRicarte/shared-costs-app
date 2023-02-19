@@ -15,7 +15,7 @@
     "preview": "vite preview --host",
     "lint": "eslint --fix . --ext .ts,.tsx",
     "format": "prettier --write .",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watchAll",
     "prepare": "husky install"
   },
