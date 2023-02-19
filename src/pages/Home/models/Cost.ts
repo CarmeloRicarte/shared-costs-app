@@ -3,5 +3,5 @@ export interface Cost {
   personName: string;
   totalAmount: number;
   description: string;
-  paymentDate: string;
+  paymentDate: Date;
 }
