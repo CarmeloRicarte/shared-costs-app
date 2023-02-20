@@ -12,6 +12,10 @@ export default ({ mode }: { mode: string }) => {
       alias: [
         { find: '@', replacement: resolve(__dirname, './src') },
         { find: 'pages', replacement: resolve(__dirname, './src/pages') },
+        {
+          find: 'components',
+          replacement: resolve(__dirname, './src/components'),
+        },
       ],
     },
     define: { 'process.env': { ...loadEnv(mode, process.cwd()) } },
