@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { CustomTable } from '../../components';
+import { CustomTable, Modal } from '../../components';
 import { getLocaleDateString } from '../../utilities';
 import { useHomeContext } from './context';
 import { getCosts } from './services/Costs.service';
@@ -20,23 +20,33 @@ const tableHeaders = [
   },
 ];
 
-const actions = [
-  {
-    label: 'Añadir amigo',
-    onClick: () => {
-      console.log('abrir añadir amigo');
-    },
-  },
-  {
-    label: 'Añadir pago',
-    onClick: () => {
-      console.log('abrir añadir pago');
-    },
-  },
-];
-
 export const Home = () => {
   const { costs, setCosts } = useHomeContext();
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const actions = [
+    {
+      label: 'Añadir amigo',
+      onClick: () => {
+        handleOpenModal();
+      },
+    },
+    {
+      label: 'Añadir pago',
+      onClick: () => {
+        handleOpenModal();
+      },
+    },
+  ];
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   const getCostData = async () => {
     try {
       const data = await getCosts();
@@ -61,6 +71,9 @@ export const Home = () => {
         perPage={5}
         actions={actions}
       />
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {/* TODO: PASAR EL COMPONENTE DE FORMULARIO */}
+      </Modal>
     </div>
   );
 };
