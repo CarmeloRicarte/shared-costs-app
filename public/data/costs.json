@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "personName": "Jerrilee Trenam",
+    "totalAmount": 54.58,
+    "description": "Cena",
+    "paymentDate": "02/17/2023 21:00:06"
+  },
+  {
+    "id": "2",
+    "personName": "Paddy Trathan",
+    "totalAmount": 37.01,
+    "description": "Cine",
+    "paymentDate": "02/18/2023 22:00:00"
+  },
+  {
+    "id": "3",
+    "personName": "Nefen Daburn",
+    "totalAmount": 57.73,
+    "description": "Taxi",
+    "paymentDate": "02/16/2023 17:35:00"
+  },
+  {
+    "id": "4",
+    "personName": "Yalonda Cowdray",
+    "totalAmount": 15.24,
+    "description": "Compra supermercado",
+    "paymentDate": "02/10/2023 13:21:03"
+  }
+]
