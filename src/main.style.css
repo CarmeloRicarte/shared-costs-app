@@ -19,8 +19,20 @@ body {
   color: #fff;
 }
 
+ul {
+  list-style: none;
+}
+
 .App {
   height: 90vh;
   display: grid;
+  padding: 0.5rem 1rem;
+}
+
+.text-center {
   text-align: center;
+}
+
+.text-end {
+  text-align: end;
 }
