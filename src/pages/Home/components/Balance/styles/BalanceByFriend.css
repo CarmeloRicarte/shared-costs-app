@@ -1,0 +1,16 @@
+.balance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.balance > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.balance > div > span:first-child {
+  font-weight: bold;
+}

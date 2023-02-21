@@ -25,7 +25,6 @@ ul {
 
 .App {
   height: 90vh;
-  display: grid;
   padding: 0.5rem 1rem;
 }
 
@@ -35,4 +34,18 @@ ul {
 
 .text-end {
   text-align: end;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}
+
+.list-grid-2-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }

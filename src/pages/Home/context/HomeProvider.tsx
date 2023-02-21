@@ -1,6 +1,6 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 
-import { Friend, Group } from '../models';
+import { Balance, Friend, Group } from '../models';
 import { Cost } from '../models/Cost';
 import { HomeContext } from './HomeContext';
 
@@ -12,6 +12,7 @@ export const HomeProvider: FC<HomeProviderProps> = ({ children }) => {
   const [costs, setCosts] = useState<Cost[]>([]);
   const [friends, setFriends] = useState<Friend[]>([]);
   const [groups, setGroups] = useState<Group[]>([]);
+  const [balances, setBalances] = useState<Balance[]>([]);
 
   const contextValue = useMemo(
     () => ({
@@ -21,6 +22,8 @@ export const HomeProvider: FC<HomeProviderProps> = ({ children }) => {
       setFriends,
       groups,
       setGroups,
+      balances,
+      setBalances,
     }),
     [costs, setCosts, friends, setFriends, groups, setGroups]
   );

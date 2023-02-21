@@ -20,19 +20,17 @@ export const CostList: React.FC<CostListProps> = ({ costs }) => {
   );
 
   return (
-    <div>
-      <div className='costs-list-grid'>
-        <ul>
-          <div className='costs-list-grid__header'>
-            <h2>Listado de gastos</h2>
-            <button className='action-button'>Añadir pago</button>
-            <button className='action-button'>Añadir amigo</button>
-          </div>
-          {costs.map((cost) => (
-            <CostsListItem key={cost.id} cost={cost} />
-          ))}
-        </ul>
-      </div>
-    </div>
+    <>
+      <ul>
+        <div className='costs-list-grid__header'>
+          <h2>Listado de gastos</h2>
+          <button className='action-button'>Añadir pago</button>
+          <button className='action-button'>Añadir amigo</button>
+        </div>
+        {costs.map((cost) => (
+          <CostsListItem key={cost.id} cost={cost} />
+        ))}
+      </ul>
+    </>
   );
 };
