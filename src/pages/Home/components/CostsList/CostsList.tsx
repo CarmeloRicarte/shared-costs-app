@@ -7,9 +7,15 @@ import { CostsListItem } from '../CostsListItem';
 
 interface CostListProps {
   costs: Cost[];
+  onClickPagoButton: () => void;
+  onClickAmigoButton: () => void;
 }
 
-export const CostList: React.FC<CostListProps> = ({ costs }) => {
+export const CostList: React.FC<CostListProps> = ({
+  costs,
+  onClickPagoButton,
+  onClickAmigoButton,
+}) => {
   useMemo(
     () =>
       costs.sort(
@@ -24,8 +30,12 @@ export const CostList: React.FC<CostListProps> = ({ costs }) => {
       <ul>
         <div className='costs-list-grid__header'>
           <h2>Listado de gastos</h2>
-          <button className='action-button'>Añadir pago</button>
-          <button className='action-button'>Añadir amigo</button>
+          <button className='action-button' onClick={onClickPagoButton}>
+            Añadir pago
+          </button>
+          <button className='action-button' onClick={onClickAmigoButton}>
+            Añadir amigo
+          </button>
         </div>
         {costs.map((cost) => (
           <CostsListItem key={cost.id} cost={cost} />
