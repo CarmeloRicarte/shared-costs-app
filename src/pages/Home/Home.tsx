@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Modal } from '../../components';
-import { BalanceByFriend } from './components';
+import { AddFriendForm, BalanceByFriend } from './components';
 import { CostList } from './components/CostsList';
 import { useHomeContext } from './context';
 import { getFriends, getGroups } from './services';
@@ -9,14 +9,15 @@ import { getCosts } from './services/Costs.service';
 
 export const Home = () => {
   const { costs, setCosts, setFriends, setGroups } = useHomeContext();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalAddFriendOpen, setIsModalAddFriendOpen] = useState(false);
+  const [isModalAddPaymentOpen, setIsModalAddPaymentOpen] = useState(false);
 
-  /* const handleOpenModal = () => {
-    setIsModalOpen(true);
-  }; */
+  const handleToggleAddFriendModal = () => {
+    setIsModalAddFriendOpen(!isModalAddFriendOpen);
+  };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleToggleAddPaymentModal = () => {
+    setIsModalAddPaymentOpen(!isModalAddPaymentOpen);
   };
 
   const getCostData = async () => {
@@ -68,11 +69,19 @@ export const Home = () => {
     <>
       <h1 className='text-center'>Gastos Compartidos</h1>
       <div className='list-grid-2-columns'>
-        <CostList costs={costs} />
+        <CostList
+          costs={costs}
+          onClickPagoButton={handleToggleAddPaymentModal}
+          onClickAmigoButton={handleToggleAddFriendModal}
+        />
         <BalanceByFriend />
       </div>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {/* TODO: PASAR EL COMPONENTE DE FORMULARIO */}
+      <Modal
+        isOpen={isModalAddFriendOpen}
+        onClose={handleToggleAddFriendModal}
+        headerTitle='Añadir amigo al grupo'
+      >
+        <AddFriendForm onSubmitForm={handleToggleAddFriendModal} />
       </Modal>
     </>
   );
