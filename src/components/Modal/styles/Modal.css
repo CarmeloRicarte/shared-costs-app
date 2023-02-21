@@ -47,6 +47,10 @@
   color: #fff;
 }
 
+.modal-header-title {
+  margin: 0;
+}
+
 .modal-close {
   font-size: 24px;
   color: #bdbdbd;
