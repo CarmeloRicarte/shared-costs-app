@@ -22,7 +22,7 @@ const tableHeaders = [
 
 export const Home = () => {
   const { costs, setCosts } = useHomeContext();
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const actions = [
     {
