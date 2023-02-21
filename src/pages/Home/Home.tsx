@@ -1,47 +1,17 @@
 import { useEffect, useState } from 'react';
 
-import { CustomTable, Modal } from '../../components';
-import { getLocaleDateString } from '../../utilities';
+import { Modal } from '../../components';
+import { CostList } from './components/CostsList';
 import { useHomeContext } from './context';
 import { getCosts } from './services/Costs.service';
-
-const tableHeaders = [
-  { key: 'personName', header: 'Nombre' },
-  {
-    key: 'totalAmount',
-    header: 'Importe del pago',
-    render: (value: number) => <>{`${value} €`}</>,
-  },
-  { key: 'description', header: 'Descripción' },
-  {
-    key: 'paymentDate',
-    header: 'Fecha del pago',
-    render: (value: string) => <>{getLocaleDateString(value)}</>,
-  },
-];
 
 export const Home = () => {
   const { costs, setCosts } = useHomeContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const actions = [
-    {
-      label: 'Añadir amigo',
-      onClick: () => {
-        handleOpenModal();
-      },
-    },
-    {
-      label: 'Añadir pago',
-      onClick: () => {
-        handleOpenModal();
-      },
-    },
-  ];
-
-  const handleOpenModal = () => {
+  /* const handleOpenModal = () => {
     setIsModalOpen(true);
-  };
+  }; */
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -64,13 +34,8 @@ export const Home = () => {
 
   return (
     <div>
-      <h1>Gastos Compartidos</h1>
-      <CustomTable
-        data={costs}
-        columns={tableHeaders}
-        perPage={5}
-        actions={actions}
-      />
+      <h1 className='text-center'>Gastos Compartidos</h1>
+      <CostList costs={costs} />
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {/* TODO: PASAR EL COMPONENTE DE FORMULARIO */}
       </Modal>
