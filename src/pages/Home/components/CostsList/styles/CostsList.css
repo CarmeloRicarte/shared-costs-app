@@ -20,5 +20,5 @@
 }
 
 .action-button:hover {
-  background-color: #f57c00;
+  background-color: var(--secondary-color);
 }
