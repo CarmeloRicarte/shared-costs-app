@@ -2,6 +2,18 @@
   --primary-color: #03a9f4;
   --secondary-color: #ff9800;
   --background-color: #262626;
+  --gradient-background: linear-gradient(
+    to top,
+    #505285 0%,
+    #585e92 12%,
+    #65689f 25%,
+    #7474b0 37%,
+    #7e7ebb 50%,
+    #8389c7 62%,
+    #9795d4 75%,
+    #a2a1dc 87%,
+    #b5aee4 100%
+  );
   --header-background-color: #424242;
   --disabled-color: #928d8d;
 }
@@ -16,17 +28,22 @@ html {
 body {
   overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
-  background-color: var(--background-color);
   color: #fff;
+  background-image: var(--gradient-background);
 }
 
 ul {
   list-style: none;
 }
 
+.default-section {
+  border-radius: 0.5rem;
+  background-color: var(--background-color);
+}
+
 .App {
-  height: 90vh;
   padding: 0.5rem 1rem;
+  height: calc(100vh - 36px);
 }
 
 .text-center {
@@ -142,4 +159,5 @@ ul {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
+  gap: 0.5rem;
 }

@@ -63,7 +63,7 @@ export const BalanceByFriend: React.FC = () => {
   };
 
   return (
-    <div className='balance'>
+    <section className='balance default-section'>
       <h2>Balance</h2>
       {balances?.map((balance) => (
         <div key={balance.friendName}>
@@ -73,6 +73,6 @@ export const BalanceByFriend: React.FC = () => {
           </span>
         </div>
       ))}
-    </div>
+    </section>
   );
 };

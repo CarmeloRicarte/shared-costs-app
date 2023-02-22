@@ -1,14 +1,5 @@
 .friend-group-form {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.friend-group-form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
 }
 
 .friend-group-form-label {
@@ -34,6 +25,8 @@
 .friend-group-form-select {
   border: 1px solid #424242;
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box; /* to make the width of the element include the padding and the border */
 }
 
 .friend-group-form-input:focus,
