@@ -1,0 +1,65 @@
+.payment-group-form {
+  /* display: flex;
+  flex-direction: column;
+  padding: 16px; */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.payment-group-form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.payment-group-form-label {
+  margin-right: 8px;
+  padding-left: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.payment-group-form-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  color: #424242;
+}
+
+.payment-group-form-select {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.payment-group-form-input,
+.payment-group-form-select {
+  border: 1px solid #424242;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box; /* to make the width of the element include the padding and the border */
+}
+
+.payment-group-form-input:focus,
+.payment-group-form-select:focus {
+  border: 3px solid #0077ff;
+}
+
+.payment-group-form-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment-group-form-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.payment-group-form-button:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
