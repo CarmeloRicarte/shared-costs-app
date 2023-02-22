@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Modal } from '../../components';
-import { AddFriendForm, BalanceByFriend } from './components';
+import { AddFriendForm, AddPaymentForm, BalanceByFriend } from './components';
 import { CostList } from './components/CostsList';
 import { useHomeContext } from './context';
 import { getFriends, getGroups } from './services';
@@ -82,6 +82,13 @@ export const Home = () => {
         headerTitle='Añadir amigo al grupo'
       >
         <AddFriendForm onSubmitForm={handleToggleAddFriendModal} />
+      </Modal>
+      <Modal
+        isOpen={isModalAddPaymentOpen}
+        onClose={handleToggleAddPaymentModal}
+        headerTitle='Añadir pago'
+      >
+        <AddPaymentForm onSubmitForm={handleToggleAddPaymentModal} />
       </Modal>
     </>
   );
