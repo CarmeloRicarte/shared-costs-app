@@ -27,7 +27,7 @@ export const CostList: React.FC<CostListProps> = ({
 
   return (
     <section className='default-section'>
-      <ul>
+      <ul className='costs-list'>
         <div className='costs-list-grid__header'>
           <h2>Listado de gastos</h2>
           <button className='action-button' onClick={onClickPagoButton}>
