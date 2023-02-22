@@ -3,14 +3,12 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../../components';
 import { AddFriendForm, AddPaymentForm, BalanceByFriend } from './components';
 import { CostList } from './components/CostsList';
-import { useHomeContext } from './context';
-import { getFriends, getGroups } from './services';
-import { getCosts } from './services/Costs.service';
+import { useCosts } from './hooks';
 
 export const Home = () => {
-  const { costs, setCosts, setFriends, setGroups } = useHomeContext();
   const [isModalAddFriendOpen, setIsModalAddFriendOpen] = useState(false);
   const [isModalAddPaymentOpen, setIsModalAddPaymentOpen] = useState(false);
+  const { costs, getAllCosts } = useCosts();
 
   const handleToggleAddFriendModal = () => {
     setIsModalAddFriendOpen(!isModalAddFriendOpen);
@@ -20,49 +18,16 @@ export const Home = () => {
     setIsModalAddPaymentOpen(!isModalAddPaymentOpen);
   };
 
-  const getCostData = async () => {
+  const getCostsData = async () => {
     try {
-      const data = await getCosts();
-      if (data != null) {
-        setCosts(data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const getFriendsData = async () => {
-    try {
-      const friends = await getFriends();
-      if (friends != null) {
-        setFriends(friends);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const getGroupsData = async () => {
-    try {
-      const groups = await getGroups();
-      if (groups != null) {
-        setGroups(groups);
-      }
+      await getAllCosts();
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    void getCostData();
-  }, []);
-
-  useEffect(() => {
-    void getFriendsData();
-  }, []);
-
-  useEffect(() => {
-    void getGroupsData();
+    void getCostsData();
   }, []);
 
   return (
