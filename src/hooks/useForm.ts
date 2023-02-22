@@ -12,7 +12,9 @@ export const useForm = <T extends object>(initialForm: T) => {
    */
   const onInputChange = ({
     target,
-  }: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  }: ChangeEvent<
+    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+  >) => {
     const { name, value } = target;
     setFormState({
       ...formState, // maintain state of other form fields
