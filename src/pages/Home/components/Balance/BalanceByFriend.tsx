@@ -10,7 +10,7 @@ export const BalanceByFriend: React.FC = () => {
   return (
     <section className='balance default-section'>
       <h2>Balance</h2>
-      {balances?.map((balance) => (
+      {balances.map((balance) => (
         <div key={balance.friendName}>
           <span>{balance.friendName}</span>
           <span className={balance.balance >= 0 ? 'text-green' : 'text-red'}>

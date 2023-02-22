@@ -9,7 +9,7 @@ export const useBalances = () => {
   const { balances, setBalances } = useHomeContext();
   useEffect(() => {
     costs.length > 0 && calculateBalance();
-  }, [costs]);
+  }, [costs, balances]);
 
   /**
    * It takes an array of objects, and returns an array of objects, where each object has a friendName
