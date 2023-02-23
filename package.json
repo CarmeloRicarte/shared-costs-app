@@ -16,6 +16,7 @@
     "lint": "eslint --fix . --ext .ts,.tsx",
     "format": "prettier --write .",
     "test": "vitest --passWithNoTests",
+    "coverage": "vitest run --coverage",
     "test:noWatch": "vitest --passWithNoTests --watch=false",
     "prepare": "husky install"
   },
@@ -38,6 +39,7 @@
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.2",
     "@vitejs/plugin-react": "^3.0.1",
+    "@vitest/coverage-c8": "^0.28.5",
     "@vitest/ui": "^0.28.5",
     "eslint": "8.32.0",
     "eslint-config-prettier": "8.6.0",
