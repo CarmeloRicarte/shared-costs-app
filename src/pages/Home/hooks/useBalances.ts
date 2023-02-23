@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-
+import { useLocalStorage } from '../../../hooks';
 import { useHomeContext } from '../context';
 import { Balance } from '../models';
 import { useCosts } from './useCosts';
@@ -7,9 +6,12 @@ import { useCosts } from './useCosts';
 export const useBalances = () => {
   const { costs } = useCosts();
   const { balances, setBalances } = useHomeContext();
-  useEffect(() => {
-    costs.length > 0 && calculateBalance();
-  }, [costs, balances]);
+  const { setItem } = useLocalStorage();
+
+  const setBalancesContextAndLocalStorage = (balances: Balance[]) => {
+    setBalances(balances);
+    setItem('balances', balances);
+  };
 
   /**
    * It takes an array of objects, and returns an array of objects, where each object has a friendName
@@ -52,10 +54,11 @@ export const useBalances = () => {
       friendName: friendBalance.friendName,
       balance: friendBalance.balance - average,
     }));
-    setBalances(balances);
+    setBalancesContextAndLocalStorage(balances);
   };
 
   return {
     balances,
+    calculateBalance,
   };
 };
