@@ -1,11 +1,20 @@
 import './styles/BalanceByFriend.css';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { useBalances } from '../../hooks';
+import { useBalances, useCosts } from '../../hooks';
 
 export const BalanceByFriend: React.FC = () => {
-  const { balances } = useBalances();
+  const { balances, calculateBalance } = useBalances();
+  const { costs } = useCosts();
+
+  useEffect(() => {
+    costs.length > 0 && calculateBalance();
+  }, []);
+
+  useEffect(() => {
+    costs.length > 0 && calculateBalance();
+  }, [costs]);
 
   return (
     <section className='balance default-section'>
