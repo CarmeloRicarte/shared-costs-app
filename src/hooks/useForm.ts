@@ -15,10 +15,12 @@ export const useForm = <T extends object>(initialForm: T) => {
   }: ChangeEvent<
     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
   >) => {
-    const { name, value } = target;
+    const { name, value, type } = target;
+    const newValue =
+      type === 'number' && value !== '' ? parseFloat(value) : value;
     setFormState({
       ...formState, // maintain state of other form fields
-      [name]: value, // update state of field that is changed
+      [name]: newValue, // update state of field that is changed
     });
   };
 
