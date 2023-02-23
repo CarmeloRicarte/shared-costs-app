@@ -5,13 +5,13 @@ import React, { useMemo } from 'react';
 import { Cost } from '../../models';
 import { CostsListItem } from '../CostsListItem';
 
-interface CostListProps {
+interface CostsListProps {
   costs: Cost[];
   onClickPagoButton: () => void;
   onClickAmigoButton: () => void;
 }
 
-export const CostList: React.FC<CostListProps> = ({
+export const CostsList: React.FC<CostsListProps> = ({
   costs,
   onClickPagoButton,
   onClickAmigoButton,

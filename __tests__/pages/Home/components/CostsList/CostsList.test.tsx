@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { CostList } from 'pages/Home/components';
+import { CostsList } from 'pages/Home/components';
 
 import { mockCosts } from '../../../../__fixtures__';
 
@@ -9,7 +9,7 @@ describe('CostsList tests', () => {
 
   test('should render the costs list', () => {
     const { container } = render(
-      <CostList
+      <CostsList
         costs={mockCosts}
         onClickAmigoButton={onClickAmigoButtonMock}
         onClickPagoButton={onClickPagoButtonMock}
@@ -21,7 +21,7 @@ describe('CostsList tests', () => {
 
   test('should call to onClickPagoButton on click button "Añadir pago"', () => {
     render(
-      <CostList
+      <CostsList
         costs={mockCosts}
         onClickAmigoButton={onClickAmigoButtonMock}
         onClickPagoButton={onClickPagoButtonMock}
@@ -35,7 +35,7 @@ describe('CostsList tests', () => {
 
   test('should call to onClickAmigoButton on click button "Añadir amigo"', () => {
     render(
-      <CostList
+      <CostsList
         costs={mockCosts}
         onClickAmigoButton={onClickAmigoButtonMock}
         onClickPagoButton={onClickPagoButtonMock}
