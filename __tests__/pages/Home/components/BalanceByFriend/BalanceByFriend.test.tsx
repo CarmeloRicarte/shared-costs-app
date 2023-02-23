@@ -3,7 +3,7 @@ import { BalanceByFriend } from 'pages/Home/components';
 import * as useBalances from 'pages/Home/hooks/useBalances';
 import * as useCosts from 'pages/Home/hooks/useCosts';
 
-import { mockBalances, mockCosts } from '../../../__fixtures__';
+import { mockBalances, mockCosts } from '../../../../__fixtures__';
 
 vi.mock('pages/Home/hooks/useCosts');
 vi.mock('pages/Home/hooks/useBalances');
