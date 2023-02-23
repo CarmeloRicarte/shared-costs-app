@@ -8,7 +8,7 @@ import { Group } from '../models';
  */
 export const getGroups = async () => {
   try {
-    const response = await axios.get<Group[]>('../data/groups.json');
+    const response = await axios.get<Group[]>('/data/groups.json');
     return response.data;
   } catch (error) {
     console.error(error);

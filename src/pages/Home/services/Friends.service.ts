@@ -8,7 +8,7 @@ import { Friend } from '../models';
  */
 export const getFriends = async () => {
   try {
-    const response = await axios.get<Friend[]>('../data/friends.json');
+    const response = await axios.get<Friend[]>('/data/friends.json');
     return response.data;
   } catch (error) {
     console.error(error);
@@ -22,7 +22,7 @@ export const getFriends = async () => {
  */
 export const createFriend = async (friend: Friend) => {
   try {
-    const response = await axios.post('../data/friends.json', friend);
+    const response = await axios.post('/data/friends.json', friend);
     return response.data;
   } catch (error) {
     console.error(error);
