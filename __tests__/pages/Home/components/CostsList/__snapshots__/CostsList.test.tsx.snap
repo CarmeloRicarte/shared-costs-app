@@ -1,0 +1,97 @@
+// Vitest Snapshot v1
+
+exports[`CostsList tests > should render the costs list 1`] = `
+<div>
+  <section
+    class="default-section"
+  >
+    <ul
+      class="costs-list"
+    >
+      <div
+        class="costs-list-grid__header"
+      >
+        <h2>
+          Listado de gastos
+        </h2>
+        <button
+          class="action-button"
+        >
+          Añadir pago
+        </button>
+        <button
+          class="action-button"
+        >
+          Añadir amigo
+        </button>
+      </div>
+      <li>
+        <div
+          class="costs-list-grid__item"
+        >
+          <div>
+            <p
+              class="costs-list-grid__personName"
+            >
+              Pedro
+            </p>
+            <p
+              class="costs-list-grid__description"
+            >
+              Comida
+            </p>
+          </div>
+          <div
+            class="text-end"
+          >
+            <p
+              class="costs-list-grid__totalAmount"
+            >
+              100
+               €
+            </p>
+            <p
+              class="costs-list-grid__paymentDate"
+            >
+              18/2/2023, 22:00:00
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div
+          class="costs-list-grid__item"
+        >
+          <div>
+            <p
+              class="costs-list-grid__personName"
+            >
+              Juan
+            </p>
+            <p
+              class="costs-list-grid__description"
+            >
+              Gasolina
+            </p>
+          </div>
+          <div
+            class="text-end"
+          >
+            <p
+              class="costs-list-grid__totalAmount"
+            >
+              50
+               €
+            </p>
+            <p
+              class="costs-list-grid__paymentDate"
+            >
+              17/2/2023, 21:00:00
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+`;
