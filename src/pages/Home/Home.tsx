@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Modal } from '../../components';
 import { AddFriendForm, AddPaymentForm, BalanceByFriend } from './components';
-import { CostList } from './components/CostsList';
+import { CostsList } from './components/CostsList';
 import { useCosts } from './hooks';
 
 export const Home = () => {
@@ -34,7 +34,7 @@ export const Home = () => {
     <>
       <h1 className='text-center'>Gastos Compartidos</h1>
       <div className='list-grid-2-columns'>
-        <CostList
+        <CostsList
           costs={costs}
           onClickPagoButton={handleToggleAddPaymentModal}
           onClickAmigoButton={handleToggleAddFriendModal}

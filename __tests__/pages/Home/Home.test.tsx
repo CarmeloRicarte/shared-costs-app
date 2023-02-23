@@ -33,7 +33,7 @@ describe('Home component', () => {
     vi.resetAllMocks();
   });
 
-  test('renders the component with the correct elements', async () => {
+  test('renders the component with the correct elements', () => {
     render(<Home />);
     expect(screen.getByText('Gastos Compartidos')).toBeInTheDocument();
     expect(screen.getByText('Añadir amigo')).toBeVisible();
