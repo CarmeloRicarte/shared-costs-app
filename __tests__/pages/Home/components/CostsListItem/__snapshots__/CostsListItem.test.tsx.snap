@@ -1,0 +1,39 @@
+// Vitest Snapshot v1
+
+exports[`CostsList tests > should render the costs list 1`] = `
+<div>
+  <li>
+    <div
+      class="costs-list-grid__item"
+    >
+      <div>
+        <p
+          class="costs-list-grid__personName"
+        >
+          Juan
+        </p>
+        <p
+          class="costs-list-grid__description"
+        >
+          Gasolina
+        </p>
+      </div>
+      <div
+        class="text-end"
+      >
+        <p
+          class="costs-list-grid__totalAmount"
+        >
+          50
+           €
+        </p>
+        <p
+          class="costs-list-grid__paymentDate"
+        >
+          17/2/2023, 21:00:00
+        </p>
+      </div>
+    </div>
+  </li>
+</div>
+`;
