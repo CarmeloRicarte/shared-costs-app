@@ -7,6 +7,10 @@ describe('CostsList tests', () => {
   const onClickAmigoButtonMock = vi.fn();
   const onClickPagoButtonMock = vi.fn();
 
+  afterEach(() => {
+    vi.resetAllMocks();
+  });
+
   test('should render the costs list', () => {
     const { container } = render(
       <CostsList
