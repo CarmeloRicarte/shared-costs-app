@@ -43,6 +43,7 @@ export const AddFriendForm: React.FC<AddFriendFormProps> = ({
           </div>
           <div className='col-4'>
             <input
+              data-testid='friend-name'
               id='name'
               type='text'
               className='friend-group-form-input'
@@ -59,6 +60,7 @@ export const AddFriendForm: React.FC<AddFriendFormProps> = ({
           </div>
           <div className='col-4'>
             <select
+              data-testid='friend-group'
               id='groupId'
               name='groupId'
               value={groupId}
