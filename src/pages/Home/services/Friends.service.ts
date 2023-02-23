@@ -14,3 +14,17 @@ export const getFriends = async () => {
     console.error(error);
   }
 };
+
+/**
+ * It takes a friend object, sends it to the server, and returns the response
+ * @param {Friend} friend - Friend - this is the friend object that we're passing in.
+ * @returns The response.data is being returned.
+ */
+export const createFriend = async (friend: Friend) => {
+  try {
+    const response = await axios.post('../data/friends.json', friend);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

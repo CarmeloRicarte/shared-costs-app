@@ -1,9 +1,10 @@
 import './styles/AddFriendForm.css';
 
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { useForm } from '../../../../hooks';
-import { useHomeContext } from '../../context';
+import { useFriends, useGroups } from '../../hooks';
 
 export interface AddFriendFormProps {
   onSubmitForm: () => void;
@@ -17,12 +18,17 @@ const initialState = {
 export const AddFriendForm: React.FC<AddFriendFormProps> = ({
   onSubmitForm,
 }) => {
-  const { groups } = useHomeContext();
+  const { groups } = useGroups();
+  const { addFriend } = useFriends();
   const { formState, name, groupId, onInputChange } = useForm(initialState);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // todo: añadir el amigo al state y escribirlo en el json de amigos
+    await addFriend({
+      id: uuidv4(),
+      name,
+      groupId,
+    });
     onSubmitForm();
   };
 
