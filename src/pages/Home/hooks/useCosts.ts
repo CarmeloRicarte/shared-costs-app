@@ -14,8 +14,12 @@ export const useCosts = () => {
   };
 
   const getAllCosts = async () => {
-    const costs = await getCosts();
-    costs ? setCostsContextAndLocalStorage(costs) : setCosts(getItem('costs'));
+    if (getItem('costs')) {
+      setCostsContextAndLocalStorage(getItem('costs'));
+    } else {
+      const costs = await getCosts();
+      costs && setCostsContextAndLocalStorage(costs);
+    }
   };
 
   const createCost = async (cost: Cost) => {
