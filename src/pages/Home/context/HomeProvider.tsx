@@ -25,7 +25,16 @@ export const HomeProvider: FC<HomeProviderProps> = ({ children }) => {
       balances,
       setBalances,
     }),
-    [costs, setCosts, friends, setFriends, groups, setGroups]
+    [
+      costs,
+      setCosts,
+      friends,
+      setFriends,
+      groups,
+      setGroups,
+      balances,
+      setBalances,
+    ]
   );
 
   return (
