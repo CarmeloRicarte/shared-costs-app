@@ -1,0 +1,85 @@
+// Vitest Snapshot v1
+
+exports[`AddFriendForm tests > should render component 1`] = `
+<div>
+  <form
+    class="friend-group-form"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-1"
+        >
+          <label
+            class="friend-group-form-label"
+            for="name"
+          >
+            Nombre:
+          </label>
+        </div>
+        <div
+          class="col-4"
+        >
+          <input
+            class="friend-group-form-input"
+            data-testid="friend-name"
+            id="name"
+            name="name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="col-1"
+        >
+          <label
+            class="friend-group-form-label"
+            for="groupId"
+          >
+            Grupo:
+          </label>
+        </div>
+        <div
+          class="col-4"
+        >
+          <select
+            class="friend-group-form-select"
+            data-testid="friend-group"
+            id="groupId"
+            name="groupId"
+            required=""
+          >
+            <option
+              value=""
+            >
+              Seleccione
+            </option>
+            <option
+              value="1"
+            >
+              Grupo 1
+            </option>
+          </select>
+        </div>
+        <div
+          class="col-2 text-end"
+        >
+          <button
+            class="friend-group-form-button"
+            disabled=""
+            id="addFriendButton"
+            type="submit"
+          >
+            Añadir
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
