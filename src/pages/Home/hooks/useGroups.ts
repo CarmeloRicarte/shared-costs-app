@@ -30,5 +30,6 @@ export const useGroups = () => {
   return {
     groups,
     getAllGroups,
+    setGroupsContextAndLocalStorage,
   };
 };
