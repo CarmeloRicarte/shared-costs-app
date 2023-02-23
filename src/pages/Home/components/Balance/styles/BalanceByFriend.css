@@ -3,6 +3,8 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
+  max-height: 25vh;
+  overflow-y: auto;
 }
 
 .balance > div {
