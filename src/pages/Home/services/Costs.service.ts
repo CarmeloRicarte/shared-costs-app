@@ -23,8 +23,10 @@ export const getCosts = async () => {
  */
 export const addCost = async (cost: Cost) => {
   try {
-    await axios.post('/data/costs.json', cost);
-    return true;
+    const response = await axios.post('/data/costs.json', cost);
+    if (response) {
+      return true;
+    }
   } catch (error) {
     console.error(error);
   }
