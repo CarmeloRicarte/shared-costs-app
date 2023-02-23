@@ -1,9 +1,10 @@
 import './styles/AddPaymentForm.css';
 
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { useForm } from '../../../../hooks';
-import { useHomeContext } from '../../context';
+import { useCosts, useFriends } from '../../hooks';
 
 export interface AddPaymentFormProps {
   onSubmitForm: () => void;
@@ -19,7 +20,8 @@ const initialState = {
 export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
   onSubmitForm,
 }) => {
-  const { friends } = useHomeContext();
+  const { createCost } = useCosts();
+  const { friends } = useFriends();
   const {
     formState,
     personName,
@@ -29,9 +31,15 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
     onInputChange,
   } = useForm(initialState);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // todo: añadir el pago al state y escribirlo en el json de amigos
+    await createCost({
+      id: uuidv4(),
+      personName,
+      totalAmount,
+      description,
+      paymentDate,
+    });
     onSubmitForm();
   };
 
@@ -90,15 +98,12 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
               id='totalAmount'
               type='number'
               min={0.01}
+              step='any'
               className='payment-group-form-input'
               name='totalAmount'
               value={totalAmount}
-              onBlur={(e: React.FormEvent<HTMLInputElement>) => {
-                e.currentTarget.value =
-                  e.currentTarget.valueAsNumber.toFixed(2);
-              }}
               onChange={onInputChange}
-              placeholder='0.00 €'
+              placeholder='0,00 €'
               required
             />
           </div>
