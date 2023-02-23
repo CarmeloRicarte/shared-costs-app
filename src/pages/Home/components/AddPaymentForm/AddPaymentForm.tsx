@@ -54,6 +54,7 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
           </div>
           <div className='col-4'>
             <select
+              data-testid='personName'
               id='personName'
               name='personName'
               value={personName}
@@ -78,6 +79,7 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
           </div>
           <div className='col-4'>
             <textarea
+              data-testid='description'
               id='description'
               className='payment-group-form-input'
               name='description'
@@ -95,6 +97,7 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
           </div>
           <div className='col-4'>
             <input
+              data-testid='totalAmount'
               id='totalAmount'
               type='number'
               min={0.01}
@@ -114,6 +117,7 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
           </div>
           <div className='col-4'>
             <input
+              data-testid='paymentDate'
               id='paymentDate'
               type='datetime-local'
               className='payment-group-form-input'
