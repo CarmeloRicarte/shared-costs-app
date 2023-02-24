@@ -12,6 +12,7 @@
     "staging": "vite --mode staging --host",
     "prod": "vite --mode production --host",
     "build": "tsc && vite build",
+    "build:docker": "docker build -t shared-costs-app .",
     "preview": "vite preview --host",
     "lint": "eslint --fix . --ext .ts,.tsx",
     "format": "prettier --write .",
@@ -61,7 +62,7 @@
     "*.{ts,tsx}": [
       "npm run lint",
       "npm run format",
-      "npm run test:noWatch"
+      "npm run test"
     ],
     "*.{scss,md}": [
       "npm run format"
