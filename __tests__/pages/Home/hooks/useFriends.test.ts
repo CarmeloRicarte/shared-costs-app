@@ -22,7 +22,7 @@ describe('useFriends', () => {
     });
   });
 
-  it('should get all friends from API when no data is in local storage', async () => {
+  test('should get all friends from API when no data is in local storage', async () => {
     (getFriends as jest.Mock).mockResolvedValueOnce(mockFriends);
     const getItemMock = vi.fn().mockReturnValue(undefined);
 
@@ -41,7 +41,7 @@ describe('useFriends', () => {
     expect(setItemMock).toHaveBeenCalledWith('friends', mockFriends);
   });
 
-  it('should get all friends from local storage when data is already there', async () => {
+  test('should get all friends from local storage when data is already there', async () => {
     (getFriends as jest.Mock).mockResolvedValueOnce(mockFriends);
     const getItemMock = vi.fn().mockReturnValue(mockFriends);
 
@@ -60,7 +60,7 @@ describe('useFriends', () => {
     expect(setItemMock).toHaveBeenCalledWith('friends', mockFriends);
   });
 
-  it('should add a new friend and update the local storage and state', async () => {
+  test('should add a new friend and update the local storage and state', async () => {
     const newFriend: Friend = {
       id: '3',
       name: 'Carmelo',

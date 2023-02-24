@@ -22,7 +22,7 @@ describe('useCosts', () => {
     });
   });
 
-  it('should get all costs from API when no data is in local storage', async () => {
+  test('should get all costs from API when no data is in local storage', async () => {
     (getCosts as jest.Mock).mockResolvedValueOnce(mockCosts);
     const getItemMock = vi.fn().mockReturnValue(undefined);
 
@@ -41,7 +41,7 @@ describe('useCosts', () => {
     expect(setItemMock).toHaveBeenCalledWith('costs', mockCosts);
   });
 
-  it('should get all costs from local storage when data is already there', async () => {
+  test('should get all costs from local storage when data is already there', async () => {
     (getCosts as jest.Mock).mockResolvedValueOnce(mockCosts);
     const getItemMock = vi.fn().mockReturnValue(mockCosts);
 
@@ -60,7 +60,7 @@ describe('useCosts', () => {
     expect(setItemMock).toHaveBeenCalledWith('costs', mockCosts);
   });
 
-  it('should add a new cost and update the local storage and state', async () => {
+  test('should add a new cost and update the local storage and state', async () => {
     const newCost: Cost = {
       id: '3',
       personName: 'Andreu',
