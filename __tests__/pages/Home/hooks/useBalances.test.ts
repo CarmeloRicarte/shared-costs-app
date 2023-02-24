@@ -3,11 +3,13 @@ import { renderHook, waitFor } from '@testing-library/react';
 import * as useHomeContext from 'pages/Home/context/HomeContext';
 import { useBalances } from 'pages/Home/hooks';
 import * as useCosts from 'pages/Home/hooks/useCosts';
+import * as useFriends from 'pages/Home/hooks/useFriends';
 
-import { mockBalances, mockCosts } from '../../../__fixtures__';
+import { mockBalances, mockCosts, mockFriends } from '../../../__fixtures__';
 
 vi.mock('pages/Home/context/HomeContext');
 vi.mock('pages/Home/hooks/useCosts');
+vi.mock('pages/Home/hooks/useFriends');
 vi.mock('@/hooks/useLocalStorage');
 
 describe('useBalances tests', () => {
@@ -28,6 +30,10 @@ describe('useBalances tests', () => {
 
     (useCosts as any).useCosts = vi.fn().mockReturnValue({
       costs: mockCosts,
+    });
+
+    (useFriends as any).useFriends = vi.fn().mockReturnValue({
+      friends: mockFriends,
     });
   });
 

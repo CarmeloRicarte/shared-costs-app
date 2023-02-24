@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { AddPaymentForm } from 'pages/Home/components';
+import * as useBalances from 'pages/Home/hooks/useBalances';
 import * as useCosts from 'pages/Home/hooks/useCosts';
 import * as useFriends from 'pages/Home/hooks/useFriends';
 
@@ -7,10 +8,12 @@ import { mockFriends } from '../../../../__fixtures__';
 
 vi.mock('pages/Home/hooks/useCosts');
 vi.mock('pages/Home/hooks/useFriends');
+vi.mock('pages/Home/hooks/useBalances');
 
 describe('AddFriendForm tests', () => {
   const onSubmitFormMock = vi.fn();
   const createCostMock = vi.fn();
+  const calculateBalanceMock = vi.fn();
 
   beforeEach(() => {
     (useCosts as any).useCosts = vi.fn().mockReturnValue({
@@ -19,6 +22,10 @@ describe('AddFriendForm tests', () => {
 
     (useFriends as any).useFriends = vi.fn().mockReturnValue({
       friends: mockFriends,
+    });
+
+    (useBalances as any).useBalances = vi.fn().mockReturnValue({
+      calculateBalance: calculateBalanceMock,
     });
   });
 
@@ -58,7 +65,7 @@ describe('AddFriendForm tests', () => {
         paymentDate: '2023-02-18T22:00',
       });
     });
-
+    expect(calculateBalanceMock).toHaveBeenCalled();
     expect(onSubmitFormMock).toHaveBeenCalled();
   });
 });

@@ -2,9 +2,11 @@ import { useLocalStorage } from '../../../hooks';
 import { useHomeContext } from '../context';
 import { Balance } from '../models';
 import { useCosts } from './useCosts';
+import { useFriends } from './useFriends';
 
 export const useBalances = () => {
   const { costs } = useCosts();
+  const { friends: friendsList } = useFriends();
   const { balances, setBalances } = useHomeContext();
   const { setItem } = useLocalStorage();
 
@@ -19,24 +21,45 @@ export const useBalances = () => {
    * @returns An array of objects with the friendName and balance properties.
    */
   const getCostsPaid = () => {
+    const friends = friendsList.map((friend) => friend.name);
+    const costFriends = costs.map((cost) => cost.personName);
+
+    const newFriends = friends.filter(
+      (friend) => !costFriends.includes(friend)
+    );
+
+    const newFriendsBalance: Balance[] = newFriends.map((friend) => ({
+      friendName: friend,
+      balance: 0,
+    }));
+
     const costsMapped = costs.map((cost) => ({
       friendName: cost.personName,
       balance: cost.totalAmount,
     }));
 
-    return costsMapped.reduce((acc: Balance[], { friendName, balance }) => {
-      const personExisting = acc.find(
-        (personBalance) => personBalance.friendName === friendName
-      );
+    const balances = costsMapped.reduce(
+      (acc: Balance[], { friendName, balance }) => {
+        const personExisting = acc.find(
+          (personBalance) => personBalance.friendName === friendName
+        );
 
-      if (personExisting !== undefined) {
-        personExisting.balance += balance;
-      } else {
-        acc.push({ friendName, balance });
-      }
+        if (personExisting !== undefined) {
+          personExisting.balance += balance;
+        } else {
+          acc.push({ friendName, balance });
+        }
 
-      return acc;
-    }, []);
+        return acc;
+      },
+      []
+    );
+
+    const newBalances = [
+      ...balances,
+      ...(newFriendsBalance ? [...newFriendsBalance] : []),
+    ];
+    return newBalances;
   };
 
   /**

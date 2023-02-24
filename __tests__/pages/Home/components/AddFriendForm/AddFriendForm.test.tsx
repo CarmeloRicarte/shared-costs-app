@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { AddFriendForm } from 'pages/Home/components';
+import * as useBalances from 'pages/Home/hooks/useBalances';
 import * as useFriends from 'pages/Home/hooks/useFriends';
 import * as useGroups from 'pages/Home/hooks/useGroups';
 
@@ -7,10 +8,12 @@ import { mockGroups } from '../../../../__fixtures__';
 
 vi.mock('pages/Home/hooks/useGroups');
 vi.mock('pages/Home/hooks/useFriends');
+vi.mock('pages/Home/hooks/useBalances');
 
 describe('AddFriendForm tests', () => {
   const onSubmitFormMock = vi.fn();
   const addFriendMock = vi.fn();
+  const calculateBalanceMock = vi.fn();
 
   beforeEach(() => {
     (useGroups as any).useGroups = vi.fn().mockReturnValue({
@@ -19,6 +22,10 @@ describe('AddFriendForm tests', () => {
 
     (useFriends as any).useFriends = vi.fn().mockReturnValue({
       addFriend: addFriendMock,
+    });
+
+    (useBalances as any).useBalances = vi.fn().mockReturnValue({
+      calculateBalance: calculateBalanceMock,
     });
   });
 
@@ -49,6 +56,7 @@ describe('AddFriendForm tests', () => {
         name: 'Carmelo',
         groupId: '1',
       });
+      expect(calculateBalanceMock).toHaveBeenCalled();
     });
 
     expect(onSubmitFormMock).toHaveBeenCalled();

@@ -4,7 +4,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useForm } from '../../../../hooks';
-import { useCosts, useFriends } from '../../hooks';
+import { useBalances, useCosts, useFriends } from '../../hooks';
 
 export interface AddPaymentFormProps {
   onSubmitForm: () => void;
@@ -22,6 +22,7 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
 }) => {
   const { createCost } = useCosts();
   const { friends } = useFriends();
+  const { calculateBalance } = useBalances();
   const {
     formState,
     personName,
@@ -40,6 +41,7 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
       description,
       paymentDate,
     });
+    calculateBalance();
     onSubmitForm();
   };
 

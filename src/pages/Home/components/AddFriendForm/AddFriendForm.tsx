@@ -4,7 +4,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useForm } from '../../../../hooks';
-import { useFriends, useGroups } from '../../hooks';
+import { useBalances, useFriends, useGroups } from '../../hooks';
 
 export interface AddFriendFormProps {
   onSubmitForm: () => void;
@@ -20,6 +20,7 @@ export const AddFriendForm: React.FC<AddFriendFormProps> = ({
 }) => {
   const { groups } = useGroups();
   const { addFriend } = useFriends();
+  const { calculateBalance } = useBalances();
   const { formState, name, groupId, onInputChange } = useForm(initialState);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,6 +30,7 @@ export const AddFriendForm: React.FC<AddFriendFormProps> = ({
       name,
       groupId,
     });
+    calculateBalance();
     onSubmitForm();
   };
 
