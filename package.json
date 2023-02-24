@@ -19,7 +19,7 @@
     "format": "prettier --write .",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "test:noWatch": "vitest --watch=false",
+    "test:noWatch": "vitest --passWithNoTests --watch=false",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -63,7 +63,7 @@
     "*.{ts,tsx}": [
       "npm run lint",
       "npm run format",
-      "npm run test"
+      "npm run test:noWatch"
     ],
     "*.{scss,md}": [
       "npm run format"
