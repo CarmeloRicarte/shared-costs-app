@@ -13,7 +13,7 @@ You also can do the following actions:
 
 - Can add a person to your friends group.
 - Add a payment.
-- See a balance sheet to see how much money each person in the group has to pay or receive so that we would all have paid the same and not have debts among the group of friends.
+- See a balance sheet to see how much money each person in the group has to pay or receive so that we would all have paid the same and not have debts among the group of friends
 
 ## How to install
 
