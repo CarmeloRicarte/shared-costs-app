@@ -16,6 +16,7 @@ describe('Home component', () => {
       costs: mockCosts,
       getAllCosts: vi.fn(),
       createCost: vi.fn(),
+      isLoading: false,
     });
     (useGroups as any).useGroups = vi.fn().mockReturnValue({
       groups: mockGroups,
@@ -31,6 +32,18 @@ describe('Home component', () => {
 
   afterEach(() => {
     vi.resetAllMocks();
+  });
+
+  test('should render the spinner if isLoading costs', () => {
+    (useCosts as any).useCosts = vi.fn().mockReturnValue({
+      costs: mockCosts,
+      getAllCosts: vi.fn(),
+      createCost: vi.fn(),
+
+      isLoading: true,
+    });
+    render(<Home />);
+    expect(screen.getByAltText('LoadingSpinner')).toBeInTheDocument();
   });
 
   test('renders the component with the correct elements', () => {

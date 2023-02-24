@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useLocalStorage } from '../../../hooks';
 import { useHomeContext } from '../context';
 import { Cost } from '../models';
@@ -6,6 +8,7 @@ import { getCosts } from '../services';
 export const useCosts = () => {
   const { costs, setCosts } = useHomeContext();
   const { setItem, getItem } = useLocalStorage();
+  const [isLoading, setisLoading] = useState(false);
 
   const setCostsContextAndLocalStorage = (costs: Cost[]) => {
     setCosts(costs);
@@ -13,12 +16,14 @@ export const useCosts = () => {
   };
 
   const getAllCosts = async () => {
+    setisLoading(true);
     if (getItem('costs')) {
       setCostsContextAndLocalStorage(getItem('costs'));
     } else {
       const costs = await getCosts();
       costs && setCostsContextAndLocalStorage(costs);
     }
+    setisLoading(false);
   };
 
   const createCost = (cost: Cost) => {
@@ -31,5 +36,6 @@ export const useCosts = () => {
     getAllCosts,
     createCost,
     setCostsContextAndLocalStorage,
+    isLoading,
   };
 };

@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`LoadingSpinner tests > should render the spinner 1`] = `
+<div>
+  <img
+    alt="LoadingSpinner"
+    src="Interwind-1s-200px.svg"
+  />
+</div>
+`;
