@@ -27,16 +27,16 @@ describe('BalanceByFriends tests', () => {
     render(<BalanceByFriend />);
     expect(screen.getByText('Balance')).toBeInTheDocument();
     expect(screen.getByText('Juan')).toBeInTheDocument();
-    expect(screen.getByText('-50.00 €')).toBeInTheDocument();
+    expect(screen.getByText('-25.00 €')).toBeInTheDocument();
   });
 
   test('should show the balance in red color if it is negative', () => {
     render(<BalanceByFriend />);
-    expect(screen.getByText('-50.00 €').className).toContain('text-red');
+    expect(screen.getByText('-25.00 €').className).toContain('text-red');
   });
 
   test('should show the balance in green color if it is positive', () => {
     render(<BalanceByFriend />);
-    expect(screen.getByText('50.00 €').className).toContain('text-green');
+    expect(screen.getByText('25.00 €').className).toContain('text-green');
   });
 });
