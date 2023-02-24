@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useLocalStorage } from '../../../hooks';
 import { useHomeContext } from '../context';
 import { Friend } from '../models';
-import { createFriend, getFriends } from '../services';
+import { getFriends } from '../services';
 
 export const useFriends = () => {
   const { friends, setFriends } = useHomeContext();
@@ -27,12 +27,9 @@ export const useFriends = () => {
     }
   };
 
-  const addFriend = async (friend: Friend) => {
-    const createdFriend = await createFriend(friend);
-    if (createdFriend) {
-      const newFriends = [...friends, friend];
-      setFriendsContextAndLocalStorage(newFriends);
-    }
+  const addFriend = (friend: Friend) => {
+    const newFriends = [...friends, friend];
+    setFriendsContextAndLocalStorage(newFriends);
   };
 
   return {

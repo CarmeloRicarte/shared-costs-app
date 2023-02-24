@@ -22,9 +22,9 @@ export const AddFriendForm: React.FC<AddFriendFormProps> = ({
   const { addFriend } = useFriends();
   const { formState, name, groupId, onInputChange } = useForm(initialState);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await addFriend({
+    addFriend({
       id: uuidv4(),
       name,
       groupId,

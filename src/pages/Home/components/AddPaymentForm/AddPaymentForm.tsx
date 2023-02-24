@@ -31,9 +31,9 @@ export const AddPaymentForm: React.FC<AddPaymentFormProps> = ({
     onInputChange,
   } = useForm(initialState);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    await createCost({
+    createCost({
       id: uuidv4(),
       personName,
       totalAmount,

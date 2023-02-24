@@ -4,7 +4,7 @@ import * as useHomeContext from 'pages/Home/context/HomeContext';
 import { useFriends } from 'pages/Home/hooks';
 
 import { Friend } from '../../../../src/pages/Home/models';
-import { createFriend, getFriends } from '../../../../src/pages/Home/services';
+import { getFriends } from '../../../../src/pages/Home/services';
 import { mockFriends } from '../../../__fixtures__';
 
 vi.mock('pages/Home/services/Friends.service');
@@ -60,22 +60,19 @@ describe('useFriends', () => {
     expect(setItemMock).toHaveBeenCalledWith('friends', mockFriends);
   });
 
-  test('should add a new friend and update the local storage and state', async () => {
+  test('should add a new friend and update the local storage and state', () => {
     const newFriend: Friend = {
       id: '3',
       name: 'Carmelo',
       groupId: '1',
     };
 
-    (createFriend as jest.Mock).mockResolvedValueOnce(true);
-
     const { result } = renderHook(() => useFriends());
 
-    await act(async () => {
-      await result.current.addFriend(newFriend);
+    act(() => {
+      result.current.addFriend(newFriend);
     });
 
-    expect(createFriend).toHaveBeenCalledWith(newFriend);
     expect(setFriendsMock).toHaveBeenCalledWith([...mockFriends, newFriend]);
     expect(setItemMock).toHaveBeenCalledWith('friends', [
       ...mockFriends,

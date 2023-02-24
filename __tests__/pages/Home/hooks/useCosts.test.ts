@@ -4,7 +4,7 @@ import * as useHomeContext from 'pages/Home/context/HomeContext';
 import { useCosts } from 'pages/Home/hooks';
 
 import { Cost } from '../../../../src/pages/Home/models';
-import { addCost, getCosts } from '../../../../src/pages/Home/services';
+import { getCosts } from '../../../../src/pages/Home/services';
 import { mockCosts } from '../../../__fixtures__/costs.fixtures';
 
 vi.mock('pages/Home/services/Costs.service');
@@ -60,7 +60,7 @@ describe('useCosts', () => {
     expect(setItemMock).toHaveBeenCalledWith('costs', mockCosts);
   });
 
-  test('should add a new cost and update the local storage and state', async () => {
+  test('should add a new cost and update the local storage and state', () => {
     const newCost: Cost = {
       id: '3',
       personName: 'Andreu',
@@ -69,15 +69,12 @@ describe('useCosts', () => {
       paymentDate: '2023-02-17T21:00:00',
     };
 
-    (addCost as jest.Mock).mockResolvedValueOnce(true);
-
     const { result } = renderHook(() => useCosts());
 
-    await act(async () => {
-      await result.current.createCost(newCost);
+    act(() => {
+      result.current.createCost(newCost);
     });
 
-    expect(addCost).toHaveBeenCalledWith(newCost);
     expect(setCostsMock).toHaveBeenCalledWith([...mockCosts, newCost]);
     expect(setItemMock).toHaveBeenCalledWith('costs', [...mockCosts, newCost]);
   });
