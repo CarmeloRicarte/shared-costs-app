@@ -39,5 +39,6 @@ export const useFriends = () => {
     friends,
     getAllFriends,
     addFriend,
+    setFriendsContextAndLocalStorage,
   };
 };

@@ -60,5 +60,6 @@ export const useBalances = () => {
   return {
     balances,
     calculateBalance,
+    setBalancesContextAndLocalStorage,
   };
 };

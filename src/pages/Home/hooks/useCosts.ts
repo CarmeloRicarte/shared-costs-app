@@ -34,5 +34,6 @@ export const useCosts = () => {
     costs,
     getAllCosts,
     createCost,
+    setCostsContextAndLocalStorage,
   };
 };
