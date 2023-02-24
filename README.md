@@ -18,47 +18,47 @@ You also can do the following actions:
 ## How to install
 
 ```bash
-pnpm i
+npm run i
 ```
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ## Start the app
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ## Start tests
 
 ```bash
-pnpm test
+npm run test
 ```
 
 ## Get the coverage
 
 ```bash
-pnpm coverage
+npm run coverage
 ```
 
 ## Build the app
 
 ```bash
-pnpm build
+npm run build
 ```
 
 ## Build locally with Docker
 
 ```bash
-docker build -t shared-costs-app .
+npm run build:docker
 ```
 
 ## Run locally with Docker
 
 ```bash
-docker run -p 80:80 shared-costs-app
+npm run dev:docker
 ```
 
 ## License

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "dev": "vite --mode development --host",
+    "dev:docker": "docker run -p 80:80 shared-costs-app",
     "staging": "vite --mode staging --host",
     "prod": "vite --mode production --host",
     "build": "tsc && vite build",
