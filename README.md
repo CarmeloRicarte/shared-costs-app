@@ -1,5 +1,7 @@
 # Shared Costs App
 
+https://shared-costs-app-7o3vcpzb5q-uc.a.run.app
+
 An app for access to shared costs in your friends group. For every cost you can visualize the next information sorted by last payment made:
 
 - Person who made the payment.
@@ -21,6 +23,42 @@ pnpm i
 
 ```bash
 pnpm dev
+```
+
+## Start the app
+
+```bash
+pnpm dev
+```
+
+## Start tests
+
+```bash
+pnpm test
+```
+
+## Get the coverage
+
+```bash
+pnpm coverage
+```
+
+## Build the app
+
+```bash
+pnpm build
+```
+
+## Build locally with Docker
+
+```bash
+docker build -t shared-costs-app .
+```
+
+## Run locally with Docker
+
+```bash
+docker run -p 80:80 shared-costs-app
 ```
 
 ## License
