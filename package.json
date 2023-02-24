@@ -15,9 +15,9 @@
     "preview": "vite preview --host",
     "lint": "eslint --fix . --ext .ts,.tsx",
     "format": "prettier --write .",
-    "test": "vitest --passWithNoTests",
+    "test": "vitest",
     "coverage": "vitest run --coverage",
-    "test:noWatch": "vitest --passWithNoTests --watch=false",
+    "test:noWatch": "vitest --watch=false",
     "prepare": "husky install"
   },
   "dependencies": {
